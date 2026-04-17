@@ -1,11 +1,11 @@
 // 1. import useState from React
 import { useState } from "react";
 import "./App.css";
-
+import { useEffect} from "react";
 function App() {
   // 2. Create weather state with default "Sunny"
 
-
+let [weather, setWeather] = useState("sunny");
 
   // 3. import useEffect from React
 
@@ -14,26 +14,46 @@ function App() {
   // 4. Create handleRainy function
   // change weather to "Rainy"
 
-
+handleRainy = () => {
+  setWeather("Rainy");
+}
 
   // 5. Create handleSnowy function
   // change weather to "Snowy"
-
+handleSnowy = () => {
+  setWeather("Snowy");
+}
 
 
   // 6. Create handleHot function
   // change weather to "Hot"
-
+handleHot = () => {
+  setWeather("Hot");
+}
 
 
   // 7. Create handleReset function
   // change weather back to "Sunny"
+handleReset = () => {
+  setWeather("Sunny");
+}
 
 
 
   // 8. Add useEffect that runs when weather changes
   // show alerts based on weather value
+useEffect() => {
+  if(weather === "Rainy"){
+    alert("Dont forget your umbrella!");
+  }
+  if(weather === "Snowy"){
+    alert("Dont forget your snow boots!");
+  }
+  if(weather === "Hot"){
+    alert("Dont forget your sunscreen!");
+  }
 
+}
 
 
   return (
@@ -48,12 +68,14 @@ function App() {
           <h2>Current Weather</h2>
 
           {/* 9. Display weather here */}
-          <p className="output">Weather: </p>
+          <p className="output">Weather: {weather}</p>
+          
 
           <button
             className="btn"
             // 10. connect to handleRainy
           >
+          classname= "btn" onClick={handleRainy}
             Rainy 🌧️
           </button>
 
@@ -61,6 +83,7 @@ function App() {
             className="btn"
             // 11. connect to handleSnowy
           >
+            classname= "btn" onClick={handleSnowy}
             Snowy ❄️
           </button>
 
@@ -68,6 +91,7 @@ function App() {
             className="btn"
             // 12. connect to handleHot
           >
+            classname= "btn" onclick={handleHot}
             Hot ☀️
           </button>
 
@@ -75,6 +99,7 @@ function App() {
             className="btn secondary"
             // 13. connect to handleReset
           >
+            classname= "btn" onClick={handleReset}
             Reset
           </button>
         </div>
